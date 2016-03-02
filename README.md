@@ -1,2 +1,2 @@
-# html-to-hash
-Ruby library for turning HTML into a hash
+# HTML to Hash
+A Ruby library for turning HTML into a hash. Give it a URL and it will give you a hash back.
