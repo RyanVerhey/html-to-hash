@@ -22,7 +22,7 @@ class HtmlToHash
   end
 
   def remove_extra_whitespace_from_html_str
-
+    @html_str = @html_str.gsub(/>\s*</, "><").gsub(/\n+/, " ").strip
   end
 
   module Tag
