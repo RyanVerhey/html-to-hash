@@ -18,7 +18,11 @@ class HtmlToHash
   protected
 
   def parse_html_str
-
+    array_of_elements = @html_str.scan(HTML_REGEXP)
+    tag = array_of_elements.first[0]
+    attributes = Attribute.html_attributes_str_to_hash array_of_elements.first[1]
+    inner_html = array_of_elements.first[2]
+    { tag: tag, attributes: attributes, inner_html: inner_html }
   end
 
   def remove_extra_whitespace_from_html_str
