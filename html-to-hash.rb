@@ -30,7 +30,19 @@ class HtmlToHash
   end
 
   module Attribute
-    # Any logic relating to attributes
+    def self.html_attributes_str_to_hash(str)
+      attrs_str = str.to_s.strip
+      attrs_hash = {}
+
+      attrs_array = attrs_str.split " "
+      attrs_array.each do |attr_pair|
+        attribute, value = attr_pair.split "="
+        value = value.to_s.gsub /("|')/, ""
+        attrs_hash[attribute.to_sym] = value
+      end
+
+      attrs_hash
+    end
   end
 
   module Comment
